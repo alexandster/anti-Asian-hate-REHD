@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20230314</CreaDate><CreaTime>10543000</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files\arcgis\pro\Resources\ArcToolbox\toolboxes\Conversion Tools.tbx\ExportFeatures" Date="20230314" Time="105434">ExportFeatures geom2 "G:\My Drive\Research Projects\AAPI2\data\GIS\us_counties.shp" # NOT_USE_ALIAS "GEOID "GEOID" true true false 80 Text 0 0,First,#,geom2,GEOID,0,80" #</Process></lineage></DataProperties></Esri></metadata>
