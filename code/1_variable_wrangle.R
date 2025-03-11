@@ -287,9 +287,6 @@ pca <- prcomp(subset(df, select = c(Percent_below_poverty, Percent_public_assist
 summary(pca)
 pca$rotation
 df$Concentrated_disadvantage <- -1 * pca$x[,1]
-#plot(df$`Median family income`, df$`Concentrated disadvantage`)
-#abline(lm(`Concentrated disadvantage`~`Median family income`,data=df),col='red')
-# high values of the Concentrated disadvantage score mean high disadvantage
 #----------------------------------------------------------------------------------------
 
 
@@ -300,18 +297,6 @@ df$Asian_population_change <- df$Percent_Asian_2020 - df$Percent_Asian_2010
 kmeans.data <- subset(df, select = c(Asian_population_2010, Asian_population_change))
 kmeans.data$Asian_population_2010 <- scale(df$Asian_population_2010, center = TRUE)
 kmeans.data$Asian_population_change <- scale(df$Asian_population_change, center = TRUE)
-
-# #k-medioids: optimal k
-# fviz_nbclust(kmeans.data, pam, method = "wss")
-# 
-# #k-medioids
-# df$`Asian destination` <- pam(
-#   kmeans.data,
-#   k = 5,
-#   nstart = 5,
-# )$cluster
-# plot(kmeans.data$`Asian population 2010`, kmeans.data$`Asian population change`,pch=16,col=df$`Asian destination`)
-# table(df$`Asian destination`)
 
 #kmeans: optimal k
 fviz_nbclust(kmeans.data, kmeans, method = "wss")

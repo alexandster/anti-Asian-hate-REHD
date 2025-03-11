@@ -1,12 +1,6 @@
-#install.packages("INLA", repos = "https://inla.r-inla-download.org/R/stable", dep = TRUE)
-#install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
-#install.packages("inlabru")
-#install.packages("Metrics")
-
 library(AER)
 library(MASS)
 library(psych)
-library(rgdal)
 library(spdep)
 library(dplyr)
 library(ggplot2)
@@ -15,7 +9,6 @@ library(stringr)
 library(sf)
 library(ape)
 library(Metrics)
-library(inlabru)
 
 
 # set workspace
@@ -27,7 +20,7 @@ load("../data/df.RData")
 df$Total <- df$Hate+df$Nohate
 
 #read geometries
-geom <- st_read("../data/GIS/us_counties.shp")
+geom <- st_read("../data/us_counties.shp")
 
 #test for NAs
 any(is.na(df))
@@ -188,9 +181,9 @@ df2$v <- res3$summary.random$idareau$mean[3014:6026]
 #write df to shp
 geom <- left_join(geom, df2, by = "GEOID") %>%
   subset(., select = c("GEOID", "fitted", "u", "v", "geometry"))
-st_write(geom, "../data/INLA_3108.shp", append = FALSE)
+st_write(geom, "../outputs/INLA_3108.shp", append = FALSE)
 
 df3 <- geom[!(geom$GEOID %in% df2$GEOID),]
-st_write(df3, "../data/INLA_3013.shp", append = FALSE)
+st_write(df3, "../outputs/INLA_3013.shp", append = FALSE)
 
 
