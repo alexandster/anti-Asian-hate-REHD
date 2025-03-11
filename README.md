@@ -1,4 +1,4 @@
-# anti-Asian-hate-SSM
+# anti-Asian-hate-REHD
 
 Title<br>
 The spatial correlates of anti-Asian hate on social media in the United States during COVID-19
